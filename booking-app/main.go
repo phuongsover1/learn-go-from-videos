@@ -10,7 +10,7 @@ func main() {
 	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferenceTickets, remainingTickets, conferenceName)
 
 	fmt.Printf("Welcome to %v booking application\n", conferenceName)
-	fmt.Println("We have total of", conferenceTickets,"tickets and", remainingTickets, "are still available")
+	fmt.Println("We have total of", conferenceTickets, "tickets and", remainingTickets, "are still available")
 	fmt.Println("Get you tickets here to attend")
 
 	//var bookings = [50]string{"Nana", "Nicole", "Peter", "Khang"}
@@ -29,7 +29,7 @@ func main() {
 	// fmt.Println("first 3rd array value: ")
 	// println(bookings[0])
 	// println(bookings[1])
-	// println(bookings[2])	
+	// println(bookings[2])
 
 	// fmt.Println("first 3rd array address value: ")
 	// println(&bookings)
@@ -48,25 +48,29 @@ func main() {
 	// fmt.Println(test[0])
 	// fmt.Println(test[1]) // error
 
-	var userName string
-	var lastName string
-	var email string
-	var userTickets int
-	// ask user for their name
-	fmt.Printf("Enter your firstname: ")
-	fmt.Scan(&userName)
+	for {
+		var userName string
+		var lastName string
+		var email string
+		var userTickets int
+		// ask user for their name
+		fmt.Printf("Enter your firstname: ")
+		fmt.Scan(&userName)
 
-	fmt.Printf("Enter you last name: ")
-	fmt.Scan(&lastName)
+		fmt.Printf("Enter you last name: ")
+		fmt.Scan(&lastName)
 
-	bookings = append(bookings, userName + " " + lastName)
+		bookings = append(bookings, userName+" "+lastName)
 
-	fmt.Printf("Enter you email address: ")
-	fmt.Scan(&email)
-	
-	fmt.Print("How many ticket do you want to book: ")
-	fmt.Scan(&userTickets)
-	fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName,lastName, email, userTickets)
-	fmt.Printf("Remaining tickets: %v\n", remainingTickets - len(bookings))
+		fmt.Printf("Enter you email address: ")
+		fmt.Scan(&email)
+
+		fmt.Print("How many ticket do you want to book: ")
+		fmt.Scan(&userTickets)
+		fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName, lastName, email, userTickets)
+		remainingTickets = remainingTickets - userTickets
+		fmt.Printf("Remaining tickets: %v\n", remainingTickets)
+		fmt.Printf("User in slice: %v\n", bookings)
+	}
 
 }
