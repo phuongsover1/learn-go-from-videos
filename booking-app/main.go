@@ -16,7 +16,18 @@ func main() {
 	//var bookings = [50]string{"Nana", "Nicole", "Peter", "Khang"}
 	var bookings [50]string
 	bookings[0] = "Nana"
+	bookings[1] = "Nicole"
 
+	fmt.Println("first 3rd array value: ")
+	println(bookings[0])
+	println(bookings[1])
+	println(bookings[2])	
+
+	fmt.Println("first 3rd array address value: ")
+	println(&bookings)
+	println(&bookings[0])
+	println(&bookings[1])
+	println(&bookings[2])
 
 	var userName string
 	var lastName string
