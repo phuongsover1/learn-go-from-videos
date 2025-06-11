@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var conferenceName = "Go Conference"
+	conferenceName := "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets = 50
 
@@ -14,7 +14,7 @@ func main() {
 	fmt.Println("Get you tickets here to attend")
 
 	//var bookings = [50]string{"Nana", "Nicole", "Peter", "Khang"}
-	var bookings []string
+	bookings := []string{}
 
 	bookings = append(bookings, "Nana")
 	bookings = append(bookings, "Nicole")
