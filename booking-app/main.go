@@ -72,7 +72,7 @@ func main() {
 		fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName, lastName, email, userTickets)
 
 		firstNames := []string{}
-		for index, booking := range bookings {
+		for _, booking := range bookings {
 			var names = strings.Fields(booking)
 			firstNames = append(firstNames, names[0])
 		}
