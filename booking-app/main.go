@@ -29,13 +29,16 @@ func main() {
 	println(&bookings[1])
 	println(&bookings[2])
 
-	fmt.Println("TEST")
-	var test []int
-	test[0] = 1
-	test[1] = 2
+	fmt.Println("The array size is", len(bookings))
+	fmt.Printf("The type of array: %T\n", bookings)
 
-	fmt.Println(test[0])
-	fmt.Println(test[1]) // error
+	// fmt.Println("TEST")
+	// var test []int
+	// test[0] = 1
+	// test[1] = 2
+
+	// fmt.Println(test[0])
+	// fmt.Println(test[1]) // error
 
 	var userName string
 	var lastName string
