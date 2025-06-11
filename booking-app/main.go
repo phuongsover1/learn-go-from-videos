@@ -13,7 +13,9 @@ func main() {
 	fmt.Println("We have total of", conferenceTickets,"tickets and", remainingTickets, "are still available")
 	fmt.Println("Get you tickets here to attend")
 
-	var bookings = [50]string{"Nana", "Nicole", "Peter", "Khang"}
+	//var bookings = [50]string{"Nana", "Nicole", "Peter", "Khang"}
+	var bookings [50]string
+	bookings[0] = "Nana"
 
 
 	var userName string
