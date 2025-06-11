@@ -14,23 +14,31 @@ func main() {
 	fmt.Println("Get you tickets here to attend")
 
 	//var bookings = [50]string{"Nana", "Nicole", "Peter", "Khang"}
-	var bookings [50]string
-	bookings[0] = "Nana"
-	bookings[1] = "Nicole"
+	var bookings []string
 
-	fmt.Println("first 3rd array value: ")
-	println(bookings[0])
-	println(bookings[1])
-	println(bookings[2])	
+	bookings = append(bookings, "Nana")
+	bookings = append(bookings, "Nicole")
 
-	fmt.Println("first 3rd array address value: ")
-	println(&bookings)
-	println(&bookings[0])
-	println(&bookings[1])
-	println(&bookings[2])
+	fmt.Printf("The whole slice: %v\n", bookings)
+	fmt.Printf("The first value: %v\n", bookings[0])
+	fmt.Printf("Slice type: %T\n", bookings)
+	fmt.Printf("Slice length: %v\n", len(bookings))
+	// bookings[0] = "Nana"
+	// bookings[1] = "Nicole"
 
-	fmt.Println("The array size is", len(bookings))
-	fmt.Printf("The type of array: %T\n", bookings)
+	// fmt.Println("first 3rd array value: ")
+	// println(bookings[0])
+	// println(bookings[1])
+	// println(bookings[2])	
+
+	// fmt.Println("first 3rd array address value: ")
+	// println(&bookings)
+	// println(&bookings[0])
+	// println(&bookings[1])
+	// println(&bookings[2])
+
+	// fmt.Println("The array size is", len(bookings))
+	// fmt.Printf("The type of array: %T\n", bookings)
 
 	// fmt.Println("TEST")
 	// var test []int
@@ -51,11 +59,14 @@ func main() {
 	fmt.Printf("Enter you last name: ")
 	fmt.Scan(&lastName)
 
-	fmt.Println("Enter you email address: ")
+	bookings = append(bookings, userName + " " + lastName)
+
+	fmt.Printf("Enter you email address: ")
 	fmt.Scan(&email)
 	
-	userTickets = 2
+	fmt.Print("How many ticket do you want to book: ")
+	fmt.Scan(&userTickets)
 	fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName,lastName, email, userTickets)
-
+	fmt.Printf("Remaining tickets: %v\n", remainingTickets - len(bookings))
 
 }
