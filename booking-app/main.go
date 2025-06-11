@@ -29,6 +29,14 @@ func main() {
 	println(&bookings[1])
 	println(&bookings[2])
 
+	fmt.Println("TEST")
+	var test []int
+	test[0] = 1
+	test[1] = 2
+
+	fmt.Println(test[0])
+	fmt.Println(test[1]) // error
+
 	var userName string
 	var lastName string
 	var email string
