@@ -68,28 +68,41 @@ func main() {
 
 		fmt.Print("How many ticket do you want to book: ")
 		fmt.Scan(&userTickets)
-		if userTickets > remainingTickets {
+
+		isValidName := len(userName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
+
+		// if userTickets > remainingTickets {
+		// 	fmt.Printf("The remaining tickets are %v. So you cannot book %v tickets\n", remainingTickets, userTickets)
+		// 	continue
+		// }
+		if isValidName && isValidEmail && isValidTicketNumber {
+			fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName, lastName, email, userTickets)
+			fmt.Printf("You will receive a confirmation email at %v \n", email)
+
+			bookings = append(bookings, userName+" "+lastName)
+			firstNames := []string{}
+			for _, booking := range bookings {
+				var names = strings.Fields(booking)
+				firstNames = append(firstNames, names[0])
+			}
+			fmt.Printf("The first names of booking are: %v\n", firstNames)
+
+			remainingTickets = remainingTickets - userTickets
+			fmt.Printf("Remaining tickets: %v\n", remainingTickets)
+			fmt.Printf("These are all our bookings: %v\n", bookings)
+			noTicketsRemaining := remainingTickets == 0
+			if noTicketsRemaining {
+				// end program
+				fmt.Println("Our conference is booked out. Come back next year.")
+			}
+		} else if !isValidName {
+			fmt.Println("Your first name or last name is not valid!!!")
+		} else if !isValidEmail {
+			fmt.Println("Your email is not valid!!!")
+		} else {
 			fmt.Printf("The remaining tickets are %v. So you cannot book %v tickets\n", remainingTickets, userTickets)
-			continue
-		}
-		fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName, lastName, email, userTickets)
-		fmt.Printf("You will receive a confirmation email at %v \n", email)
-
-		bookings = append(bookings, userName+" "+lastName)
-		firstNames := []string{}
-		for _, booking := range bookings {
-			var names = strings.Fields(booking)
-			firstNames = append(firstNames, names[0])
-		}
-		fmt.Printf("The first names of booking are: %v\n", firstNames)
-
-		remainingTickets = remainingTickets - userTickets
-		fmt.Printf("Remaining tickets: %v\n", remainingTickets)
-		fmt.Printf("These are all our bookings: %v\n", bookings)
-		noTicketsRemaining := remainingTickets == 0
-		if noTicketsRemaining {
-			// end program
-			fmt.Println("Our conference is booked out. Come back next year.")
 		}
 	}
 
