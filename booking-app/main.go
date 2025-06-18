@@ -51,7 +51,7 @@ func main() {
 	// fmt.Println(test[0])
 	// fmt.Println(test[1]) // error
 
-	for {
+	for remainingTickets > 0 {
 		var userName string
 		var lastName string
 		var email string
@@ -90,7 +90,6 @@ func main() {
 		if noTicketsRemaining {
 			// end program
 			fmt.Println("Our conference is booked out. Come back next year.")
-			break
 		}
 	}
 
