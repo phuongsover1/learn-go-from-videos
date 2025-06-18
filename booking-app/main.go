@@ -7,8 +7,8 @@ import (
 
 func main() {
 	conferenceName := "Go Conference"
-	const conferenceTickets = 50
-	var remainingTickets = 50
+	const conferenceTickets uint = 50
+	var remainingTickets uint = 50
 
 	fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferenceTickets, remainingTickets, conferenceName)
 
@@ -55,7 +55,7 @@ func main() {
 		var userName string
 		var lastName string
 		var email string
-		var userTickets int
+		var userTickets uint
 		// ask user for their name
 		fmt.Printf("Enter your firstname: ")
 		fmt.Scan(&userName)
@@ -63,15 +63,19 @@ func main() {
 		fmt.Printf("Enter you last name: ")
 		fmt.Scan(&lastName)
 
-
 		fmt.Printf("Enter you email address: ")
 		fmt.Scan(&email)
 
 		fmt.Print("How many ticket do you want to book: ")
 		fmt.Scan(&userTickets)
+		if userTickets > remainingTickets {
+			fmt.Printf("The remaining tickets are %v. So you cannot book %v tickets\n", remainingTickets, userTickets)
+			continue
+		}
 		fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName, lastName, email, userTickets)
+		fmt.Printf("You will receive a confirmation email at %v \n", email)
 
-		bookings = append(bookings, userName + " " + lastName)
+		bookings = append(bookings, userName+" "+lastName)
 		firstNames := []string{}
 		for _, booking := range bookings {
 			var names = strings.Fields(booking)
@@ -82,7 +86,7 @@ func main() {
 		remainingTickets = remainingTickets - userTickets
 		fmt.Printf("Remaining tickets: %v\n", remainingTickets)
 		fmt.Printf("These are all our bookings: %v\n", bookings)
-		noTicketsRemaining  := remainingTickets == 0
+		noTicketsRemaining := remainingTickets == 0
 		if noTicketsRemaining {
 			// end program
 			fmt.Println("Our conference is booked out. Come back next year.")
