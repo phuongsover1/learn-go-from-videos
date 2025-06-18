@@ -82,6 +82,12 @@ func main() {
 		remainingTickets = remainingTickets - userTickets
 		fmt.Printf("Remaining tickets: %v\n", remainingTickets)
 		fmt.Printf("These are all our bookings: %v\n", bookings)
+		noTicketsRemaining  := remainingTickets == 0
+		if noTicketsRemaining {
+			// end program
+			fmt.Println("Our conference is booked out. Come back next year.")
+			break
+		}
 	}
 
 }
