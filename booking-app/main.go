@@ -71,6 +71,7 @@ func main() {
 		fmt.Scan(&userTickets)
 		fmt.Printf("User %v %v with email %v booked %v tickets.\n", userName, lastName, email, userTickets)
 
+		bookings = append(bookings, userName + " " + lastName)
 		firstNames := []string{}
 		for _, booking := range bookings {
 			var names = strings.Fields(booking)
